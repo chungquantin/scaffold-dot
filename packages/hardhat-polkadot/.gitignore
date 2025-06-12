@@ -1,3 +1,17 @@
-/artifacts-pvm
-/cache-pvm
-/ignition/deployments/
+node_modules
+.env
+
+# Hardhat files
+/cache
+/artifacts
+
+# TypeChain files
+/typechain
+
+# solidity-coverage files
+/coverage
+/coverage.json
+
+cache-pvm
+artifacts-pvm
+typechain-types

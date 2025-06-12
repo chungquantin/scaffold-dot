@@ -52,13 +52,15 @@
   "devDependencies": {
     "@types/fs-extra": "^11",
     "husky": "~9.1.6",
-    "lint-staged": "~13.2.2"
+    "lint-staged": "~13.2.2",
+    "prettier-plugin-solidity": "^2.0.0"
   },
   "packageManager": "yarn@3.2.3",
   "engines": {
     "node": ">=20.18.3"
   },
   "dependencies": {
-    "fs-extra": "^11.3.0"
+    "fs-extra": "^11.3.0",
+    "prettier": "^3.5.3"
   }
 }

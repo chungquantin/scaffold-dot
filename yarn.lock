@@ -186,6 +186,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bytecodealliance/preview2-shim@npm:0.17.2":
+  version: 0.17.2
+  resolution: "@bytecodealliance/preview2-shim@npm:0.17.2"
+  checksum: 444c243dc5c26b8e8dffb011e24b591f51c74c3e4daf0bab2b5aeeac988ff7bfcfbc7a7f461194e85259e3fe84ba53d23dbe8992eaf0da80cdd35b4626c62577
+  languageName: node
+  linkType: hard
+
 "@chainsafe/is-ip@npm:^2.0.1":
   version: 2.1.0
   resolution: "@chainsafe/is-ip@npm:2.1.0"
@@ -3165,6 +3172,15 @@ __metadata:
   version: 0.15.11
   resolution: "@nomicfoundation/ignition-ui@npm:0.15.11"
   checksum: b587d373c90f3b5d57fa322404837f0201e76b1b1c60e5c714839414d1db6ad69f94010ce2c0b0b893581c5e95d68a0c3efdca64de60d208dbd20c0846df7fcd
+  languageName: node
+  linkType: hard
+
+"@nomicfoundation/slang@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@nomicfoundation/slang@npm:1.1.0"
+  dependencies:
+    "@bytecodealliance/preview2-shim": 0.17.2
+  checksum: 228ac6957f56e0e8e0a71aba01b8187212203d1333a91492666e3f7078df9e6afab0b0ae5bb4b82531ca160798a365f59c82f3338749e059e781402c7d46b42d
   languageName: node
   linkType: hard
 
@@ -16025,6 +16041,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier-plugin-solidity@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "prettier-plugin-solidity@npm:2.0.0"
+  dependencies:
+    "@nomicfoundation/slang": 1.1.0
+    "@solidity-parser/parser": ^0.20.1
+    semver: ^7.7.1
+  peerDependencies:
+    prettier: ">=3.0.0"
+  checksum: daf7301796b67f099c810b484b0a029826fe5da38097243ed556e1f00289d8904bbdda72c75c784f405d2c9572e91cf6ddc3501ed236001140735360d2635d97
+  languageName: node
+  linkType: hard
+
 "prettier-plugin-solidity@npm:~1.4.1":
   version: 1.4.3
   resolution: "prettier-plugin-solidity@npm:1.4.3"
@@ -17131,6 +17160,8 @@ __metadata:
     fs-extra: ^11.3.0
     husky: ~9.1.6
     lint-staged: ~13.2.2
+    prettier: ^3.5.3
+    prettier-plugin-solidity: ^2.0.0
   languageName: unknown
   linkType: soft
 

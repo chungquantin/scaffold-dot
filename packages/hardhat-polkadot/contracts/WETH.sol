@@ -2,19 +2,19 @@
 pragma solidity ^0.8.19;
 
 contract WETH {
-    string public name     = "Wrapped Ether";
-    string public symbol   = "WETH";
-    uint8  public decimals = 18;
+    string public name = "Wrapped Ether";
+    string public symbol = "WETH";
+    uint8 public decimals = 18;
 
-    event  Approval(address indexed src, address indexed guy, uint wad);
-    event  Transfer(address indexed src, address indexed dst, uint wad);
-    event  Deposit(address indexed dst, uint wad);
-    event  Withdrawal(address indexed src, uint wad);
+    event Approval(address indexed src, address indexed guy, uint wad);
+    event Transfer(address indexed src, address indexed dst, uint wad);
+    event Deposit(address indexed dst, uint wad);
+    event Withdrawal(address indexed src, uint wad);
 
-    mapping (address => uint)                       public  balanceOf;
-    mapping (address => mapping (address => uint))  public  allowance;
+    mapping(address => uint) public balanceOf;
+    mapping(address => mapping(address => uint)) public allowance;
 
-    receive() payable external {
+    receive() external payable {
         deposit();
     }
     function deposit() public payable {
@@ -24,11 +24,11 @@ contract WETH {
     function withdraw(uint wad) public {
         require(balanceOf[msg.sender] >= wad);
         balanceOf[msg.sender] -= wad;
-        
+
         // Use call instead of transfer for safer ETH transfers
-        (bool success, ) = payable(msg.sender).call{value: wad}("");
+        (bool success, ) = payable(msg.sender).call{ value: wad }("");
         require(success, "ETH transfer failed");
-        
+
         emit Withdrawal(msg.sender, wad);
     }
 
@@ -46,10 +46,7 @@ contract WETH {
         return transferFrom(msg.sender, dst, wad);
     }
 
-    function transferFrom(address src, address dst, uint wad)
-        public
-        returns (bool)
-    {
+    function transferFrom(address src, address dst, uint wad) public returns (bool) {
         require(balanceOf[src] >= wad);
 
         // Use type(uint256).max instead of uint(-1) for modern Solidity

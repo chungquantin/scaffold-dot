@@ -179,13 +179,13 @@ export const BlocksTable = ({ blocks, transactionReceipts }: TransactionsTablePr
         <table className="table text-xl bg-base-100 table-zebra w-full md:table-md table-sm">
           <thead>
             <tr className="rounded-xl text-sm text-base-content">
-              <th className="bg-primary">Block</th>
-              <th className="bg-primary">Age</th>
-              <th className="bg-primary">Txn</th>
-              <th className="bg-primary">Miner</th>
-              <th className="bg-primary">Gas Used</th>
-              <th className="bg-primary">Gas Limit</th>
-              <th className="bg-primary text-end">Base Fee ({targetNetwork.nativeCurrency.symbol})</th>
+              <th className="bg-primary text-white">Block</th>
+              <th className="bg-primary text-white">Age</th>
+              <th className="bg-primary text-white">Txn</th>
+              <th className="bg-primary text-white">Miner</th>
+              <th className="bg-primary text-white">Gas Used</th>
+              <th className="bg-primary text-white">Gas Limit</th>
+              <th className="bg-primary text-end text-white">Base Fee ({targetNetwork.nativeCurrency.symbol})</th>
             </tr>
           </thead>
           <tbody>

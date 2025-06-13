@@ -50,24 +50,18 @@ describe("UniswapV2ERC20", function () {
           ["bytes32", "bytes32", "bytes32", "uint256", "address"],
           [
             keccak256(
-              toUtf8Bytes(
-                "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"
-              )
+              toUtf8Bytes("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"),
             ),
             keccak256(toUtf8Bytes(name)),
             keccak256(toUtf8Bytes("1")),
             chainId,
             token_address,
-          ]
-        )
-      )
+          ],
+        ),
+      ),
     );
     expect(await token.PERMIT_TYPEHASH()).to.eq(
-      keccak256(
-        toUtf8Bytes(
-          "Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)"
-        )
-      )
+      keccak256(toUtf8Bytes("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)")),
     );
   });
 
@@ -76,63 +70,41 @@ describe("UniswapV2ERC20", function () {
     await expect(token.approve(other.address, TEST_AMOUNT))
       .to.emit(token, "Approval")
       .withArgs(walletAddress, other.getAddress(), TEST_AMOUNT);
-    expect(await token.allowance(walletAddress, other.address)).to.eq(
-      TEST_AMOUNT
-    );
+    expect(await token.allowance(walletAddress, other.address)).to.eq(TEST_AMOUNT);
   });
 
   it("transfer", async () => {
     await expect(token.transfer(other.address, TEST_AMOUNT))
       .to.emit(token, "Transfer")
       .withArgs(wallet.address, other.address, TEST_AMOUNT);
-    expect(await token.balanceOf(wallet.address)).to.eq(
-      TOTAL_SUPPLY - TEST_AMOUNT
-    );
+    expect(await token.balanceOf(wallet.address)).to.eq(TOTAL_SUPPLY - TEST_AMOUNT);
     expect(await token.balanceOf(other.address)).to.eq(TEST_AMOUNT);
   });
 
   it("transfer:fail", async () => {
-    await expect(token.transfer(other.address, TOTAL_SUPPLY + 1n)).to.be
-      .reverted; // ds-math-sub-underflow
-    await expect(token.connect(other).transfer(wallet.address, 1)).to.be
-      .reverted; // ds-math-sub-underflow
+    await expect(token.transfer(other.address, TOTAL_SUPPLY + 1n)).to.be.reverted; // ds-math-sub-underflow
+    await expect(token.connect(other).transfer(wallet.address, 1)).to.be.reverted; // ds-math-sub-underflow
   });
 
   it("transferFrom", async () => {
     await token.approve(other.address, TEST_AMOUNT);
-    expect(await token.allowance(wallet.address, other.address)).to.eq(
-      TEST_AMOUNT
-    );
+    expect(await token.allowance(wallet.address, other.address)).to.eq(TEST_AMOUNT);
     console.log("address", other.address);
-    await expect(
-      token
-        .connect(other)
-        .transferFrom(wallet.address, other.address, TEST_AMOUNT)
-    )
+    await expect(token.connect(other).transferFrom(wallet.address, other.address, TEST_AMOUNT))
       .to.emit(token, "Transfer")
       .withArgs(wallet.address, other.address, TEST_AMOUNT);
     expect(await token.allowance(wallet.address, other.address)).to.eq(0);
-    expect(await token.balanceOf(wallet.address)).to.eq(
-      TOTAL_SUPPLY - TEST_AMOUNT
-    );
+    expect(await token.balanceOf(wallet.address)).to.eq(TOTAL_SUPPLY - TEST_AMOUNT);
     expect(await token.balanceOf(other.address)).to.eq(TEST_AMOUNT);
   });
 
   it("transferFrom:max", async () => {
     await token.approve(other.address, ethers.MaxUint256);
-    await expect(
-      token
-        .connect(other)
-        .transferFrom(wallet.address, other.address, TEST_AMOUNT)
-    )
+    await expect(token.connect(other).transferFrom(wallet.address, other.address, TEST_AMOUNT))
       .to.emit(token, "Transfer")
       .withArgs(wallet.address, other.address, TEST_AMOUNT);
-    expect(await token.allowance(wallet.address, other.address)).to.eq(
-      MaxUint256
-    );
-    expect(await token.balanceOf(wallet.address)).to.eq(
-      TOTAL_SUPPLY - TEST_AMOUNT
-    );
+    expect(await token.allowance(wallet.address, other.address)).to.eq(MaxUint256);
+    expect(await token.balanceOf(wallet.address)).to.eq(TOTAL_SUPPLY - TEST_AMOUNT);
     expect(await token.balanceOf(other.address)).to.eq(TEST_AMOUNT);
   });
 });

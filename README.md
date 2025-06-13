@@ -7,7 +7,7 @@ Forked version of Scaffold-DOT to support Polkadot Hub.
   <a href="https://scaffoldeth.io">Website</a>
 </h4>
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Polkadot Hub blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
 
 ⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
 
@@ -17,7 +17,8 @@ Forked version of Scaffold-DOT to support Polkadot Hub.
 - 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
 - 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+
+![image](https://github.com/user-attachments/assets/cde8be68-ed02-4c86-bdbe-8ba87b3acd6b)
 
 ## Requirements
 
@@ -70,9 +71,11 @@ Run smart contract test with `yarn hardhat:test`
 
 ## Documentation
 
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-DOT.
+Visit Scaffold-ETH [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-DOT.
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
+To know more about its features, check out Scaffold-ETH [website](https://scaffoldeth.io).
+
+Learn about [Hardhat development with Polkadot Hub](https://papermoonio.github.io/polkadot-mkdocs/develop/smart-contracts/dev-environments/hardhat/#deploy-to-a-local-node)
 
 ## Contributing to Scaffold-DOT
 

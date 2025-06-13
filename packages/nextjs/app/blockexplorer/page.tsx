@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PaginationButton, SearchBar, TransactionsTable } from "./_components";
+import { BlocksTable, PaginationButton, SearchBar } from "./_components";
 import type { NextPage } from "next";
-import { hardhat } from "viem/chains";
+import { hardhat } from "~~/config/hardhat";
 import { useFetchBlocks } from "~~/hooks/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { notification } from "~~/utils/scaffold-eth";
@@ -74,7 +74,7 @@ const BlockExplorer: NextPage = () => {
   return (
     <div className="container mx-auto my-10">
       <SearchBar />
-      <TransactionsTable blocks={blocks} transactionReceipts={transactionReceipts} />
+      <BlocksTable blocks={blocks} transactionReceipts={transactionReceipts} />
       <PaginationButton currentPage={currentPage} totalItems={Number(totalBlocks)} setCurrentPage={setCurrentPage} />
     </div>
   );

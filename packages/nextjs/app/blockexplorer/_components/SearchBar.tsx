@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { isAddress, isHex } from "viem";
-import { hardhat } from "viem/chains";
 import { usePublicClient } from "wagmi";
+import { hardhat } from "~~/config/hardhat";
 
 export const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -38,7 +38,7 @@ export const SearchBar = () => {
         className="border-primary bg-base-100 text-base-content placeholder:text-base-content/50 p-2 mr-2 w-full md:w-1/2 lg:w-1/3 rounded-md shadow-md focus:outline-hidden focus:ring-2 focus:ring-accent"
         type="text"
         value={searchInput}
-        placeholder="Search by hash or address"
+        placeholder="Search by block number, transaction hash, or address"
         onChange={e => setSearchInput(e.target.value)}
       />
       <button className="btn btn-sm btn-primary" type="submit">

@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { AddressCodeTab } from "./AddressCodeTab";
 import { AddressLogsTab } from "./AddressLogsTab";
 import { AddressStorageTab } from "./AddressStorageTab";
+import { BlocksTable } from "./BlocksTable";
 import { PaginationButton } from "./PaginationButton";
-import { TransactionsTable } from "./TransactionsTable";
 import { createPublicClient, http } from "viem";
-import { hardhat } from "viem/chains";
+import { hardhat } from "~~/config/hardhat";
 import { useFetchBlocks } from "~~/hooks/scaffold-eth";
 
 type AddressCodeTabProps = {
@@ -84,7 +84,7 @@ export const ContractTabs = ({ address, contractData }: PageProps) => {
       )}
       {activeTab === "transactions" && (
         <div className="pt-4">
-          <TransactionsTable blocks={filteredBlocks} transactionReceipts={transactionReceipts} />
+          <BlocksTable blocks={filteredBlocks} transactionReceipts={transactionReceipts} />
           <PaginationButton
             currentPage={currentPage}
             totalItems={Number(totalBlocks)}

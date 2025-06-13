@@ -9,7 +9,7 @@ import {
   walletActions,
   webSocket,
 } from "viem";
-import { hardhat } from "viem/chains";
+import { hardhat } from "~~/config/hardhat";
 import { decodeTransactionData } from "~~/utils/scaffold-eth";
 
 const BLOCKS_PER_PAGE = 20;
@@ -53,7 +53,6 @@ export const useFetchBlocks = () => {
         }
       });
       const fetchedBlocks = await Promise.all(blocksWithTransactions);
-
       fetchedBlocks.forEach(block => {
         block.transactions.forEach(tx => decodeTransactionData(tx as Transaction));
       });
@@ -81,6 +80,9 @@ export const useFetchBlocks = () => {
 
   useEffect(() => {
     fetchBlocks();
+    setInterval(() => {
+      fetchBlocks();
+    }, 3000);
   }, [fetchBlocks]);
 
   useEffect(() => {

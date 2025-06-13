@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { hardhat } from "viem/chains";
+import { hardhat } from "~~/config/hardhat";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth";
 
 type AddressLinkWrapperProps = {

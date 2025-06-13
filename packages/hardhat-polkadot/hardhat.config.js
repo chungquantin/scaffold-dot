@@ -22,6 +22,10 @@ const config = {
     },
   },
   networks: {
+    // polkadotHubTestnet: {
+    //   polkavm: true,
+    //   url: "https://testnet-passet-hub-eth-rpc.polkadot.io",
+    // },
     hardhat: {
       polkavm: true,
       nodeConfig: {

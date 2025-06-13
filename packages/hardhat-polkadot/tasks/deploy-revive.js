@@ -13,13 +13,10 @@ task("deploy-revive", "Deploys a contract")
 
     try {
       const abi = JSON.parse(
-        readFileSync(
-          join("artifacts", "contracts", contractName, `${contractName}.json`),
-          "utf8"
-        )
+        readFileSync(join("artifacts", "contracts", contractName, `${contractName}.json`), "utf8"),
       );
       const bytecode = `0x${readFileSync(
-        join("artifacts", "contracts", contractName, `${contractName}.polkavm`)
+        join("artifacts", "contracts", contractName, `${contractName}.polkavm`),
       ).toString("hex")}`;
 
       // Create contract factory and deploy

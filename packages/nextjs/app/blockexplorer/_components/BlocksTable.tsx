@@ -234,7 +234,7 @@ const BlockRow = ({
   const formattedTime = formatDistanceToNow(timeMined, { addSuffix: true });
 
   return (
-    <tr className="hover text-sm" onClick={() => onBlockClick(block)}>
+    <tr className="hover text-sm">
       <td className="w-1/12 md:py-4">
         <button
           className="text-blue-500 hover:underline cursor-pointer bg-transparent border-none p-0 m-0 text-left"
@@ -256,9 +256,9 @@ const BlockRow = ({
       <td className="w-2/12 md:py-4">
         <Address address={block.miner} size="sm" onlyEnsOrAddress />
       </td>
-      <td className="w-2/12 md:py-4">{block.gasUsed.toString()}</td>
-      <td className="w-2/12 md:py-4">{block.gasLimit.toString()}</td>
-      <td className="text-right md:py-4">
+      <td className="w-2/12 md:py-4 text-sm">{block.gasUsed.toString()}</td>
+      <td className="w-2/12 md:py-4 text-sm">{block.gasLimit.toString()}</td>
+      <td className="text-right md:py-4 text-sm">
         {block.baseFeePerGas ? `${formatEther(block.baseFeePerGas)} ${targetNetwork.nativeCurrency.symbol}` : "0"}
       </td>
     </tr>

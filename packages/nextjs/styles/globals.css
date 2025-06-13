@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&display=swap");
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -7,8 +6,8 @@
   --shadow-center: 0 0 12px -2px rgb(0 0 0 / 0.05);
   --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --font-sans:
-    "Unbounded", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
+    var(--font-unbounded), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }
 
 @plugin "daisyui" {
@@ -23,7 +22,7 @@
   /* Polkadot Brand Colors */
   --color-primary: #e6007a; /* Polkadot Pink */
   --color-primary-content: #ffffff;
-  --color-secondary: #e6007a; /* Polkadot Light Pink */
+  --color-secondary: #000000; /* Darker Polkadot Pink */
   --color-secondary-content: #ffffff;
   --color-accent: #00b2ff; /* Polkadot Cyan */
   --color-accent-content: #000000;

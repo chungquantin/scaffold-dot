@@ -10,7 +10,7 @@
     "check-types": "tsc --noEmit --incremental",
     "clean": "hardhat clean",
     "compile": "hardhat compile",
-    "deploy": "ts-node scripts/runHardhatDeployWithPK.ts",
+    "deploy": "node scripts/runHardhatDeployWithPK.js",
     "flatten": "hardhat flatten",
     "fork": "MAINNET_FORKING_ENABLED=true hardhat node --network hardhat --no-deploy",
     "format": "prettier --write './**/*.(ts|sol)'",
@@ -47,6 +47,7 @@
     "solidity-coverage": "^0.8.1"
   },
   "dependencies": {
+    "@inquirer/password": "^4.0.15",
     "@nomicfoundation/hardhat-ignition": "^0.15.9",
     "dotenv": "^16.4.7",
     "hardhat-resolc": "^0.0.8",

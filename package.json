@@ -53,7 +53,8 @@
     "@types/fs-extra": "^11",
     "husky": "~9.1.6",
     "lint-staged": "~13.2.2",
-    "prettier-plugin-solidity": "^2.0.0"
+    "prettier-plugin-solidity": "^2.0.0",
+    "ts-node": "^10.9.2"
   },
   "packageManager": "yarn@3.2.3",
   "engines": {

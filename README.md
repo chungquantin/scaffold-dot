@@ -1,6 +1,6 @@
 # 🏗 Scaffold-DOT
 
-Forked version of Scaffold-DOT to support Polkadot Hub.
+Forked version of Scaffold-ETH to support Polkadot Hub.
 
 <h4 align="center">
   <a href="https://docs.scaffoldeth.io">Documentation</a> |
